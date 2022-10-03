@@ -4,7 +4,6 @@ class Result {
   constructor(name, marks) {
     this.name = name
     this.marks = marks
-    this.finalVerdict = "NA"
   }
   addMarks(score) {
     this.marks += score
@@ -12,9 +11,22 @@ class Result {
   }
 }
 
+class giveOp {
+  constructor() {
+    // this.result = new Result(student1.name, student1.marks)
+    // this.result = new Result({ ...student1 })
+    this.result = { ...student1 }
+  }
+  generateResult1() {
+    if (this.result.marks > 500)
+      console.log("Yeppy! You have passed the exam!!")
+    else console.log("Oh boy! You have failed the exam!!")
+  }
+}
 const student1 = new Result("Ravi", 340)
 student1.addMarks(300)
-generateResult(student1.marks)
+const g1 = new giveOp(student1)
+g1.generateResult1()
 
 // the above example is clearly violating the single responsilblity principle as here the
 // class Result has 2 reasons two change 1) if we change the addMarks logic 2) when we change
